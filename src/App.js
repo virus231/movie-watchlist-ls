@@ -7,17 +7,22 @@ import {WatchList} from "./components/WatchList";
 import {Watched} from "./components/Watched";
 import {Add} from "./components/Add";
 
+import { GlobalProvider } from './context/GlobalState'
+
 function App() {
   return (
-      <Router>
-          <Header/>
+    <GlobalProvider>
+        <Router>
+            <Header/>
 
-          <Switch>
-              <Route exact path="/" component={WatchList} />
-              <Route exact path="/watched" component={Watched} />
-              <Route exact path="/add" component={Add} />
-          </Switch>
-      </Router>
+            <Switch>
+                <Route exact path="/" component={WatchList} />
+                <Route exact path="/watched" component={Watched} />
+                <Route exact path="/add" component={Add} />
+            </Switch>
+        </Router>
+    </GlobalProvider>
+      
   );
 }
 
